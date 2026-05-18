@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StatMoney - Home</title>
+<script src="[https://cdn.tailwindcss.com?plugins=forms,container-queries](https://cdn.tailwindcss.com/?plugins=forms,container-queries)"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+"colors": {
+"primary-container": "#1a237e",
+"error-container": "#ffdad6",
+"tertiary-fixed": "#69ff87",
+"on-background": "#1a1c1d",
+"secondary-fixed-dim": "#ffb692",
+"surface-tint": "#4c56af",
+"surface-variant": "#e2e2e4",
+"error": "#ba1a1a",
+"surface-container-high": "#e8e8ea",
+"on-surface": "#1a1c1d",
+"on-secondary-container": "#562000",
+"outline-variant": "#c6c5d4",
+"on-error-container": "#93000a",
+"on-primary": "#ffffff",
+"inverse-surface": "#2f3132",
+"on-secondary-fixed-variant": "#7a3000",
+"on-primary-fixed-variant": "#343d96",
+"tertiary-fixed-dim": "#3ce36a",
+"inverse-on-surface": "#f0f0f2",
+"on-surface-variant": "#454652",
+"on-primary-container": "#8690ee",
+"on-secondary-fixed": "#341100",
+"primary-fixed": "#e0e0ff",
+"surface-container": "#eeeef0",
+"on-primary-fixed": "#000767",
+"inverse-primary": "#bdc2ff",
+"tertiary": "#002108",
+"secondary-fixed": "#ffdbcb",
+"on-secondary": "#ffffff",
+"primary-fixed-dim": "#bdc2ff",
+"secondary-container": "#fd6c00",
+"on-tertiary-container": "#00b048",
+"background": "#f9f9fb",
+"surface-bright": "#f9f9fb",
+"surface-container-lowest": "#ffffff",
+"surface-container-low": "#f3f3f5",
+"on-tertiary": "#ffffff",
+"primary": "#000666",
+"surface-container-highest": "#e2e2e4",
+"surface": "#f9f9fb",
+"on-tertiary-fixed": "#002108",
+"tertiary-container": "#003912",
+"on-error": "#ffffff",
+"surface-dim": "#d9dadc",
+"outline": "#767683",
+"secondary": "#9f4200",
+"on-tertiary-fixed-variant": "#00531e"
+},
+"borderRadius": {
+"DEFAULT": "0.25rem",
+"lg": "0.5rem",
+"xl": "0.75rem",
+"full": "9999px"
+},
+"spacing": {
+"inner-padding": "12px",
+"container-padding": "20px",
+"base": "8px",
+"card-gap": "16px"
+},
+"fontFamily": {
+"data-label": ["Inter"],
+"body-md": ["Inter"],
+"data-display": ["JetBrains Mono"],
+"headline-lg": ["Montserrat"],
+"headline-md": ["Montserrat"],
+"button-text": ["Inter"]
+},
+"fontSize": {
+"data-label": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+"data-display": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+"headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+"headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+"button-text": ["16px", {"lineHeight": "20px", "fontWeight": "600"}]
+}
+}
+}
+}
+</script>
+<style>
+.material-symbols-outlined {
+font-family: 'Material Symbols Outlined';
+font-weight: normal;
+font-style: normal;
+font-size: 24px;
+line-height: 1;
+letter-spacing: normal;
+text-transform: none;
+display: inline-block;
+white-space: nowrap;
+word-wrap: normal;
+direction: ltr;
+-webkit-font-feature-settings: 'liga';
+-webkit-font-smoothing: antialiased;
+}
+</style>
+<style>
+body {
+min-height: max(884px, 100dvh);
+}
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pb-24 md:pb-0 md:pl-80">
+<!-- Web Navigation Drawer -->
+<aside class="hidden md:flex flex-col h-full py-container-padding fixed left-0 top-0 w-80 bg-surface border-r border-outline-variant shadow-xl rounded-r-xl z-40">
+<div class="px-container-padding mb-8">
+<div class="flex items-center gap-4">
+<img alt="User Profile" class="w-12 h-12 rounded-full object-cover" data-alt="A close-up, highly detailed portrait of a professional sports analyst in a modern, well-lit studio environment. The lighting is crisp and bright, reflecting a light-mode, minimalist aesthetic. Deep navy blues and clean whites dominate the composition, conveying expertise and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhrGUZVnoDpGc9gmsX1PnlwVRzuNJm4kat7uv69pYr4xT9UHm8BpjIXcOWoMDx2oPq2gsOlohaC9-TglTgIklgW4m2y7RrQDQNy5iICm9n9Nw2uCU2BHMI4JPWKa1iDjobPZTYO0zuQeXknzsddb1tC8QvZnrUHK0vNjqttf8lWerJV77mkHTMbiYe6e4JgTxmXQz66gSw_MgqG7ZWxQ32BujEGphh5ko10oiLdPBsYfJJSnFntOTAfT0KyjGZ9-sviZUBeEkC_E4"/>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">야구 분석가</h2>
+<p class="font-data-label text-data-label text-on-surface-variant">Pro 멤버십</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto">
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high rounded-lg m-2 px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span>리그 순위</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high rounded-lg m-2 px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>경기 일정</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high rounded-lg m-2 px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+<span>선수 비교</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high rounded-lg m-2 px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>나의 예측</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high rounded-lg m-2 px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span>고객 센터</span>
+</a>
+</nav>
+<div class="px-container-padding mt-auto">
+<span class="font-data-label text-data-label text-outline">v1.2.0</span>
+</div>
+</aside>
+<!-- Top App Bar (Mobile Only) -->
+<header class="md:hidden flex justify-between items-center w-full px-container-padding py-base max-w-7xl mx-auto bg-surface docked full-width top-0 border-b border-outline-variant sticky z-30">
+<button class="text-on-surface-variant hover:bg-surface-variant transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">analytics</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">StatMoney</h1>
+<button class="text-on-surface-variant hover:bg-surface-variant transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="max-w-7xl mx-auto px-container-padding py-8 space-y-8">
+<!-- Top Section: Search bar -->
+<section class="relative max-w-2xl mx-auto w-full">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-full py-4 pl-12 pr-4 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md shadow-sm" placeholder="선수 이름 또는 팀명으로 검색" type="text"/>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+<!-- Middle Section: KBO 리그 순위 -->
+<section class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h2 class="font-headline-md text-headline-md text-on-surface">KBO 리그 순위</h2>
+<button class="text-primary font-button-text text-button-text hover:underline">전체보기</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface text-outline font-data-label text-data-label">
+<th class="py-3 px-4 font-normal">순위</th>
+<th class="py-3 px-4 font-normal">팀</th>
+<th class="py-3 px-4 font-normal">승</th>
+<th class="py-3 px-4 font-normal">패</th>
+<th class="py-3 px-4 font-normal">무</th>
+<th class="py-3 px-4 font-normal">승률</th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 font-data-display text-data-display text-primary">1</td>
+<td class="py-3 px-4 font-bold text-on-surface">LG</td>
+<td class="py-3 px-4">86</td>
+<td class="py-3 px-4">56</td>
+<td class="py-3 px-4">2</td>
+<td class="py-3 px-4 text-tertiary-container font-semibold">0.606</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 font-data-display text-data-display text-on-surface-variant">2</td>
+<td class="py-3 px-4 font-bold text-on-surface">KT</td>
+<td class="py-3 px-4">79</td>
+<td class="py-3 px-4">62</td>
+<td class="py-3 px-4">3</td>
+<td class="py-3 px-4 text-tertiary-container font-semibold">0.560</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4 font-data-display text-data-display text-on-surface-variant">3</td>
+<td class="py-3 px-4 font-bold text-on-surface">SSG</td>
+<td class="py-3 px-4">76</td>
+<td class="py-3 px-4">65</td>
+<td class="py-3 px-4">3</td>
+<td class="py-3 px-4 text-tertiary-container font-semibold">0.539</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Middle Section: 오늘의 경기 일정 -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low">
+<h2 class="font-headline-md text-headline-md text-on-surface">오늘의 경기 일정</h2>
+</div>
+<div class="p-4 flex-1 flex flex-col gap-4">
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface border border-outline-variant">
+<div class="text-center">
+<span class="block font-bold text-on-surface">LG</span>
+<span class="font-data-label text-data-label text-outline">켈리</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-data-label text-data-label text-secondary px-2 py-1 bg-secondary-fixed rounded-full mb-1">18:30</span>
+<span class="font-data-label text-data-label text-outline">잠실</span>
+</div>
+<div class="text-center">
+<span class="block font-bold text-on-surface">두산</span>
+<span class="font-data-label text-data-label text-outline">곽빈</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface border border-outline-variant">
+<div class="text-center">
+<span class="block font-bold text-on-surface">SSG</span>
+<span class="font-data-label text-data-label text-outline">김광현</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-data-label text-data-label text-secondary px-2 py-1 bg-secondary-fixed rounded-full mb-1">18:30</span>
+<span class="font-data-label text-data-label text-outline">문학</span>
+</div>
+<div class="text-center">
+<span class="block font-bold text-on-surface">키움</span>
+<span class="font-data-label text-data-label text-outline">후라도</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Section: 인기 예측 선수 cards -->
+<section>
+<div class="flex justify-between items-end mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">인기 예측 선수</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap">
+<!-- Card 1: 이정후 -->
+<a class="block bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow relative overflow-hidden group" href="#">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-fixed opacity-20 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center gap-4 mb-4">
+<img alt="이정후" class="w-16 h-16 rounded-full border-2 border-surface object-cover shadow-sm" data-alt="A detailed, professional headshot of an Asian baseball player in uniform. The background is a clean, minimal light grey, typical of a high-end corporate sports dashboard. The lighting is soft but precise, creating a crisp, light-mode aesthetic that emphasizes clarity and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmc-JxPP_BMzb0fhqtMYd8Az5nuwLs2BHx4yNoFJjnWkJOmpuWsd7sQWtOy3bcfPH-I-NbEQNXvILWmSkF6XYRq5Vo05OLsbLoacnEDe7y4rgqSVS26j_HtlMizi4kEaqqEbzANOUo9HORxTGYleYf3KVmD9RYvGMSIAOzsjcr3Ir_LWOMmkjBFwmQdmDv_TAR8Wp5wSI81xyE0Mkxf104l8kT7i1qbwVp_EtkW-pblKsMIET07o0BfvqCtLY2vay8H8tS_qZq4aA"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">이정후</h3>
+<span class="font-data-label text-data-label text-outline">외야수 · 키움</span>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 WAR</span>
+<span class="font-data-display text-data-display text-primary">6.5</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 가치</span>
+<span class="font-body-md text-on-surface font-bold">120억 원</span>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-on-primary font-button-text text-button-text rounded-lg hover:bg-surface-tint transition-colors">
+상세 분석 보기
+</button>
+</a>
+<!-- Card 2: 김광현 -->
+<a class="block bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow relative overflow-hidden group" href="#">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-fixed opacity-20 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center gap-4 mb-4">
+<img alt="김광현" class="w-16 h-16 rounded-full border-2 border-surface object-cover shadow-sm" data-alt="A focused portrait of a veteran baseball pitcher in an away uniform. The image uses high-key lighting against a pristine white background, fitting perfectly within a modern financial-style sports dashboard. The color palette is minimal, allowing the subject to stand out sharply in a light-mode layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI7ZmTntJd7nA4EBipHm81O_naAtew94l3ZzncgpkwbH20MNtlYbtTNWW2UAEe599FW2IV6KDgPge2AMKGxDF3REb60blnuotyKMpGXtunN2g9GTGdZ28vsAaED77ilRUCNt2BqvzGTgLP-hBQLIunIs2N3dNbHAeDwM6XEWkwMApkHo89NetWTitVxHcankP-PJJHs1EVXYtyFRNk8rhJxKr6gG54AYBDOvc_6ObJPw_s9y9y30CFlsq54jDfLCxPd7tU-gfPXoM"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">김광현</h3>
+<span class="font-data-label text-data-label text-outline">투수 · SSG</span>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 ERA</span>
+<span class="font-data-display text-data-display text-secondary">3.12</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 75%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 가치</span>
+<span class="font-body-md text-on-surface font-bold">85억 원</span>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-on-primary font-button-text text-button-text rounded-lg hover:bg-surface-tint transition-colors">
+상세 분석 보기
+</button>
+</a>
+<!-- Card 3: 안우진 -->
+<a class="block bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow relative overflow-hidden group" href="#">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-fixed opacity-20 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center gap-4 mb-4">
+<img alt="안우진" class="w-16 h-16 rounded-full border-2 border-surface object-cover shadow-sm" data-alt="A dynamic, professional headshot of a young baseball player, looking confident. The setting is highly controlled studio lighting with a soft grey background, emphasizing a clean, modern, and data-driven aesthetic. The light-mode palette uses cool tones to convey precision and sabermetric accuracy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMFtVZ6BmoHZ3BERe5mCnpN3r8N-OPdbPRkZH9T0VRR0JXKxCNd2DQ0y_TX4Y7360WETvjWaAFnmEseB5VRCXj-BGH6RjFLMZr96A0hKpmXOrvj-dminSzxEIdAc2DUhyQxJaepd20ubhnk6TVE93kTSc1wcIkoWWFur-6K76zmYtqT6BFzgksr56RkNJbK4bUlINVAtFR6KHRgASEHbucc2zNfbReRpkMu68rPBl-8E1x_zMcOYbudM6cLmph9rVTDV3hQTIpsHk"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">안우진</h3>
+<span class="font-data-label text-data-label text-outline">투수 · 키움</span>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 탈삼진</span>
+<span class="font-data-display text-data-display text-tertiary-container">210</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-tertiary-container h-2 rounded-full" style="width: 95%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 가치</span>
+<span class="font-body-md text-on-surface font-bold">100억 원</span>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-on-primary font-button-text text-button-text rounded-lg hover:bg-surface-tint transition-colors">
+상세 분석 보기
+</button>
+</a>
+<!-- Card 4: 노시환 -->
+<a class="block bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow relative overflow-hidden group" href="#">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-fixed opacity-20 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center gap-4 mb-4">
+<img alt="노시환" class="w-16 h-16 rounded-full border-2 border-surface object-cover shadow-sm" data-alt="A clean, corporate-style portrait of a power-hitting baseball infielder. The lighting is bright and evenly distributed, creating a flawless light-mode visual suitable for a premium financial or data-analytics platform. Subtle shadows add depth without compromising the minimalist, white-and-grey color scheme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARJ2_XG__QoodoiVtafK45ygbypj5IJUqght33KM2b7_0pWJlH7dO1k21jMrBkioJLN3tzYAPmBoOiPmoQuHYDw4deZHDzBUXOJ4aEnlVAhQ6gx-Ylwmgda5avB9m4WDk6c5Ry251JGrFeWTmnn_vyV6W6q2gQFA1KTVyHY-8X5neyGK_qwqC7soGFqDMkUXamC6TLdFwtjghh73eDxo_t-iOuvkNaLc4iKGVA-l_LlJWn_whj-27ijwrlsxkB5fvK9Xa1CcciJfw"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">노시환</h3>
+<span class="font-data-label text-data-label text-outline">내야수 · 한화</span>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 HR</span>
+<span class="font-data-display text-data-display text-primary">32</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-outline">예상 가치</span>
+<span class="font-body-md text-on-surface font-bold">75억 원</span>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-on-primary font-button-text text-button-text rounded-lg hover:bg-surface-tint transition-colors">
+상세 분석 보기
+</button>
+</a>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) -->
+<nav class="md:hidden flex justify-around items-center w-full pb-safe pt-2 px-2 fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest border-t border-outline-variant shadow-[0_-4px_12px_0_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 Active: scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-data-label text-data-label">홈</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mb-1">search</span>
+<span class="font-data-label text-data-label">검색</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mb-1">query_stats</span>
+<span class="font-data-label text-data-label">예측</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-data-label text-data-label">마이</span>
+</a>
+</nav>
+</body></html>
