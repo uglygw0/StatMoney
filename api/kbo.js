@@ -41,9 +41,9 @@ export default async function handler(req, res) {
     const schedule = [
       { away: 'Hanwha Eagles', home: 'Kiwoom Heroes', status: '18:30 (고척)' },
       { away: 'NC Dinos', home: 'Lotte Giants', status: '18:30 (사직)' },
-      { away: 'Doosan Bears', home: 'KIA Tigers', status: '18:30 (광주)' },
+      { away: 'KIA Tigers', home: 'LG Twins', status: '18:30 (잠실)' },
       { away: 'SSG Landers', home: 'KT Wiz', status: '18:30 (수원)' },
-      { away: 'Samsung Lions', home: 'LG Twins', status: '18:30 (잠실)' },
+      { away: 'Doosan Bears', home: 'Samsung Lions', status: '18:30 (대구)' },
     ];
 
     // 크롤링 실패 시 안전장치 (데이터 구조가 바뀌었을 때)

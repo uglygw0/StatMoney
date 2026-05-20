@@ -20,9 +20,9 @@ const FALLBACK_STANDINGS = [
 const FALLBACK_SCHEDULE = [
   { away: 'Hanwha Eagles', home: 'Kiwoom Heroes', status: '18:30 (고척)' },
   { away: 'NC Dinos', home: 'Lotte Giants', status: '18:30 (사직)' },
-  { away: 'Doosan Bears', home: 'KIA Tigers', status: '18:30 (광주)' },
+  { away: 'KIA Tigers', home: 'LG Twins', status: '18:30 (잠실)' },
   { away: 'SSG Landers', home: 'KT Wiz', status: '18:30 (수원)' },
-  { away: 'Samsung Lions', home: 'LG Twins', status: '18:30 (잠실)' },
+  { away: 'Doosan Bears', home: 'Samsung Lions', status: '18:30 (대구)' },
 ];
 
 const PLAYERS_DB = {
