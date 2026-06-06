@@ -330,7 +330,7 @@ function SalarySimulatorView() {
   const [currency, setCurrency] = useState('KRW');
   const [playerStats, setPlayerStats] = useState({
     name: '홍길동',
-    currentSalary: 100000000,
+    currentSalary: 30000000,
     fa: 0,
     years: 5,
     sac_pos: 3,
@@ -349,7 +349,7 @@ function SalarySimulatorView() {
   const DEFAULT_WEIGHTS = {
     USD: {
       baseSalary: 740000,
-      scaleFactor: 10000000,
+      scaleFactor: 1000000,
       fa: 0.143,
       years: 0.117,
       sac_pos: 0.097,
@@ -360,13 +360,13 @@ function SalarySimulatorView() {
       bb_k: 0.031,
       so: 0.029,
       ibb: 0.029,
-      sac_neg: -0.328,
+      sac_neg: -0.150,
       triple: -0.226,
       go_ao: -0.124
     },
     KRW: {
-      baseSalary: 50000000,
-      scaleFactor: 1000000000,
+      baseSalary: 30000000,
+      scaleFactor: 100000000,
       fa: 0.143,
       years: 0.117,
       sac_pos: 0.097,
@@ -377,7 +377,7 @@ function SalarySimulatorView() {
       bb_k: 0.031,
       so: 0.029,
       ibb: 0.029,
-      sac_neg: -0.328,
+      sac_neg: -0.150,
       triple: -0.226,
       go_ao: -0.124
     }
@@ -386,7 +386,7 @@ function SalarySimulatorView() {
   const SLIDER_CONFIGS = {
     USD: {
       baseSalary: { min: 100000, max: 5000000, step: 50000, label: '기본 보장 급여 ($)', unit: 'USD' },
-      scaleFactor: { min: 100000, max: 50000000, step: 100000, label: '단위 스케일 팩터 ($)', unit: 'USD' },
+      scaleFactor: { min: 100000, max: 10000000, step: 100000, label: '단위 스케일 팩터 ($)', unit: 'USD' },
       fa: { min: -1.0, max: 1.0, step: 0.001, label: 'FA여부 가중치' },
       years: { min: -1.0, max: 1.0, step: 0.001, label: '연차 가중치' },
       sac_pos: { min: -1.0, max: 1.0, step: 0.001, label: 'SAC(+) 가중치' },
@@ -403,7 +403,7 @@ function SalarySimulatorView() {
     },
     KRW: {
       baseSalary: { min: 10000000, max: 2000000000, step: 5000000, label: '기본 보장 급여 (원)', unit: '원' },
-      scaleFactor: { min: 10000000, max: 5000000000, step: 10000000, label: '단위 스케일 팩터 (원)', unit: '원' },
+      scaleFactor: { min: 10000000, max: 1000000000, step: 10000000, label: '단위 스케일 팩터 (원)', unit: '원' },
       fa: { min: -1.0, max: 1.0, step: 0.001, label: 'FA여부 가중치' },
       years: { min: -1.0, max: 1.0, step: 0.001, label: '연차 가중치' },
       sac_pos: { min: -1.0, max: 1.0, step: 0.001, label: 'SAC(+) 가중치' },
@@ -435,7 +435,7 @@ function SalarySimulatorView() {
     } else {
       setPlayerStats(prev => ({
         ...prev,
-        currentSalary: Math.round(prev.currentSalary * 1300 / 10000000) * 10000000 || 100000000
+        currentSalary: Math.round(prev.currentSalary * 1300 / 10000000) * 10000000 || 30000000
       }));
     }
     setSelectedPreset('custom');
