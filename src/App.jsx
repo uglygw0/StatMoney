@@ -5,27 +5,36 @@ import './App.css';
 
 // --- Default Fallback Data (API 연동 전 시연용) ---
 const FALLBACK_STANDINGS = [
-  { rank: 1, team: 'Samsung Lions', w: 25, d: 1, l: 17, pct: '.595', gb: '-' },
-  { rank: 1, team: 'KT Wiz', w: 25, d: 1, l: 17, pct: '.595', gb: '-' },
-  { rank: 3, team: 'LG Twins', w: 25, d: 0, l: 18, pct: '.581', gb: '0.5' },
-  { rank: 4, team: 'SSG Landers', w: 22, d: 1, l: 20, pct: '.524', gb: '3.0' },
-  { rank: 5, team: 'KIA Tigers', w: 22, d: 1, l: 21, pct: '.512', gb: '3.5' },
-  { rank: 6, team: 'Doosan Bears', w: 21, d: 1, l: 22, pct: '.488', gb: '4.5' },
-  { rank: 7, team: 'Hanwha Eagles', w: 20, d: 0, l: 23, pct: '.465', gb: '5.5' },
-  { rank: 8, team: 'NC Dinos', w: 18, d: 1, l: 24, pct: '.429', gb: '7.0' },
-  { rank: 9, team: 'Lotte Giants', w: 17, d: 1, l: 24, pct: '.415', gb: '7.5' },
-  { rank: 10, team: 'Kiwoom Heroes', w: 17, d: 1, l: 26, pct: '.395', gb: '8.5' },
+  { rank: 1, team: 'LG', w: 36, d: 0, l: 23, pct: '.610', gb: '-' },
+  { rank: 2, team: 'KT', w: 34, d: 1, l: 24, pct: '.586', gb: '1.5' },
+  { rank: 3, team: '삼성', w: 33, d: 1, l: 24, pct: '.579', gb: '2.0' },
+  { rank: 4, team: 'KIA', w: 32, d: 1, l: 27, pct: '.542', gb: '4.0' },
+  { rank: 5, team: '한화', w: 30, d: 1, l: 27, pct: '.526', gb: '5.0' },
+  { rank: 6, team: '두산', w: 29, d: 2, l: 29, pct: '.500', gb: '6.5' },
+  { rank: 7, team: 'NC', w: 26, d: 1, l: 31, pct: '.456', gb: '9.0' },
+  { rank: 8, team: 'SSG', w: 26, d: 1, l: 32, pct: '.448', gb: '9.5' },
+  { rank: 9, team: '롯데', w: 22, d: 1, l: 35, pct: '.386', gb: '13.0' },
+  { rank: 10, team: '키움', w: 22, d: 1, l: 38, pct: '.367', gb: '14.5' },
 ];
 
-const FALLBACK_SCHEDULE = [
-  { away: 'Hanwha Eagles', home: 'Kiwoom Heroes', status: '18:30 (고척)' },
-  { away: 'NC Dinos', home: 'Lotte Giants', status: '18:30 (사직)' },
-  { away: 'KIA Tigers', home: 'LG Twins', status: '18:30 (잠실)' },
-  { away: 'SSG Landers', home: 'KT Wiz', status: '18:30 (수원)' },
-  { away: 'Doosan Bears', home: 'Samsung Lions', status: '18:30 (대구)' },
-];
+const FALLBACK_SCHEDULE = [];
 
 const PLAYERS_DB = {
+  '김도영': {
+    name: '김도영',
+    team: 'KIA 타이거즈',
+    position: '3B',
+    currentSalary: 100000000,
+    predictedSalary: 500000000,
+    currency: 'KRW',
+    stats: { WAR: 7.2, OPS: 1.067, HR: 38, SB: 40 },
+    impactBreakdown: [
+      { stat: 'WAR (7.2)', amount: 280000000, desc: '승리기여도' },
+      { stat: 'OPS (1.067)', amount: 60000000, desc: '출루율+장타율' },
+      { stat: 'HR (38)', amount: 40000000, desc: '홈런 생산력' },
+      { stat: 'SB (40)', amount: 20000000, desc: '주력 및 도루 능력' }
+    ]
+  },
   '김하성': {
     name: '김하성',
     team: 'San Diego Padres',
@@ -217,6 +226,8 @@ function HomeView({ onSearch, standings, schedule, isLoading, onRefresh }) {
         <div className="card-header"><TrendingUp size={20} /> 오늘의 경기</div>
         {isLoading ? (
           <div style={{ padding: '2rem', textAlign: 'center', color: '#64748b' }}>불러오는 중...</div>
+        ) : schedule.length === 0 ? (
+          <div style={{ padding: '3.5rem 1rem', textAlign: 'center', color: '#64748b', fontSize: '0.875rem' }}>오늘은 예정된 경기가 없습니다.</div>
         ) : (
           <div>
             {schedule.map((match, idx) => (
@@ -326,24 +337,24 @@ function PlayerAnalyticsView({ playerData }) {
 }
 
 function SalarySimulatorView() {
-  const [selectedPreset, setSelectedPreset] = useState('custom');
+  const [selectedPreset, setSelectedPreset] = useState('김도영');
   const [currency, setCurrency] = useState('KRW');
   const [playerStats, setPlayerStats] = useState({
-    name: '홍길동',
-    currentSalary: 30000000,
+    name: '김도영',
+    currentSalary: 100000000,
     fa: 0,
-    years: 5,
-    sac_pos: 3,
-    xr: 45.5,
-    mh: 35,
-    age: 27,
-    gw_rbi: 8,
-    bb_k: 0.75,
-    so: 65,
-    ibb: 2,
-    sac_neg: 1,
-    triple: 2,
-    go_ao: 1.05
+    years: 3,
+    sac_pos: 4,
+    xr: 110.5,
+    mh: 55,
+    age: 21,
+    gw_rbi: 14,
+    bb_k: 0.66,
+    so: 110,
+    ibb: 4,
+    sac_neg: 2,
+    triple: 10,
+    go_ao: 0.85
   });
 
   const DEFAULT_WEIGHTS = {
@@ -1016,7 +1027,7 @@ function App() {
                 setSelectedPlayer(p);
                 setActiveTab('analytics');
               } else {
-                alert(`'${searchTerm}' 선수를 찾을 수 없습니다. (지원: 김하성, 이대호, 이승엽, 최정, 박용택, 나지완)`);
+                alert(`'${searchTerm}' 선수를 찾을 수 없습니다. (지원: 김도영, 김하성, 이대호, 이승엽, 최정, 박용택, 나지완)`);
               }
             }}
             standings={standings}
@@ -1025,7 +1036,7 @@ function App() {
             onRefresh={fetchDailyData}
           />
         )}
-        {activeTab === 'analytics' && <PlayerAnalyticsView playerData={selectedPlayer || PLAYERS_DB['김하성']} />}
+        {activeTab === 'analytics' && <PlayerAnalyticsView playerData={selectedPlayer || PLAYERS_DB['김도영']} />}
         {activeTab === 'simulator' && <SalarySimulatorView />}
         {activeTab === 'settings' && (
           <div className="card">
