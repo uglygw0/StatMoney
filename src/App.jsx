@@ -24,8 +24,8 @@ const PLAYERS_DB = {
     name: '김도영',
     team: 'KIA 타이거즈',
     position: '3B',
-    currentSalary: 100000000,
-    predictedSalary: 500000000,
+    currentSalary: 250000000,
+    predictedSalary: 650000000,
     currency: 'KRW',
     stats: { WAR: 7.2, OPS: 1.067, HR: 38, SB: 40 },
     impactBreakdown: [
@@ -341,20 +341,19 @@ function SalarySimulatorView() {
   const [currency, setCurrency] = useState('KRW');
   const [playerStats, setPlayerStats] = useState({
     name: '김도영',
-    currentSalary: 100000000,
+    currentSalary: 250000000,
     fa: 0,
-    years: 3,
-    sac_pos: 4,
-    xr: 110.5,
-    mh: 55,
-    age: 21,
-    gw_rbi: 14,
-    bb_k: 0.66,
-    so: 110,
+    years: 4,
+    xr: 48,
+    mh: 17,
+    age: 23,
+    gw_rbi: 6,
+    bb_k: 0.87,
+    so: 38,
     ibb: 4,
     sac_neg: 2,
-    triple: 10,
-    go_ao: 0.85
+    triple: 1,
+    go_ao: 0.73
   });
 
   const DEFAULT_WEIGHTS = {
@@ -363,7 +362,6 @@ function SalarySimulatorView() {
       scaleFactor: 1000000,
       fa: 0.143,
       years: 0.117,
-      sac_pos: 0.097,
       xr: 0.079,
       mh: 0.047,
       age: 0.039,
@@ -380,7 +378,6 @@ function SalarySimulatorView() {
       scaleFactor: 100000000,
       fa: 0.143,
       years: 0.117,
-      sac_pos: 0.097,
       xr: 0.079,
       mh: 0.047,
       age: 0.039,
@@ -400,7 +397,6 @@ function SalarySimulatorView() {
       scaleFactor: { min: 100000, max: 10000000, step: 100000, label: '단위 스케일 팩터 ($)', unit: 'USD' },
       fa: { min: -1.0, max: 1.0, step: 0.001, label: 'FA여부 가중치' },
       years: { min: -1.0, max: 1.0, step: 0.001, label: '연차 가중치' },
-      sac_pos: { min: -1.0, max: 1.0, step: 0.001, label: 'SAC(+) 가중치' },
       xr: { min: -1.0, max: 1.0, step: 0.001, label: 'XR 가중치' },
       mh: { min: -1.0, max: 1.0, step: 0.001, label: 'MH 가중치' },
       age: { min: -1.0, max: 1.0, step: 0.001, label: '나이 가중치' },
@@ -408,7 +404,7 @@ function SalarySimulatorView() {
       bb_k: { min: -1.0, max: 1.0, step: 0.001, label: 'BB/K 가중치' },
       so: { min: -1.0, max: 1.0, step: 0.001, label: 'SO 가중치' },
       ibb: { min: -1.0, max: 1.0, step: 0.001, label: 'IBB 가중치' },
-      sac_neg: { min: -1.0, max: 1.0, step: 0.001, label: 'SAC(-) 가중치' },
+      sac_neg: { min: -1.0, max: 1.0, step: 0.001, label: '희생타 가중치' },
       triple: { min: -1.0, max: 1.0, step: 0.001, label: '3B 가중치' },
       go_ao: { min: -1.0, max: 1.0, step: 0.001, label: 'GO/AO 가중치' }
     },
@@ -417,7 +413,6 @@ function SalarySimulatorView() {
       scaleFactor: { min: 10000000, max: 1000000000, step: 10000000, label: '단위 스케일 팩터 (원)', unit: '원' },
       fa: { min: -1.0, max: 1.0, step: 0.001, label: 'FA여부 가중치' },
       years: { min: -1.0, max: 1.0, step: 0.001, label: '연차 가중치' },
-      sac_pos: { min: -1.0, max: 1.0, step: 0.001, label: 'SAC(+) 가중치' },
       xr: { min: -1.0, max: 1.0, step: 0.001, label: 'XR 가중치' },
       mh: { min: -1.0, max: 1.0, step: 0.001, label: 'MH 가중치' },
       age: { min: -1.0, max: 1.0, step: 0.001, label: '나이 가중치' },
@@ -425,7 +420,7 @@ function SalarySimulatorView() {
       bb_k: { min: -1.0, max: 1.0, step: 0.001, label: 'BB/K 가중치' },
       so: { min: -1.0, max: 1.0, step: 0.001, label: 'SO 가중치' },
       ibb: { min: -1.0, max: 1.0, step: 0.001, label: 'IBB 가중치' },
-      sac_neg: { min: -1.0, max: 1.0, step: 0.001, label: 'SAC(-) 가중치' },
+      sac_neg: { min: -1.0, max: 1.0, step: 0.001, label: '희생타 가중치' },
       triple: { min: -1.0, max: 1.0, step: 0.001, label: '3B 가중치' },
       go_ao: { min: -1.0, max: 1.0, step: 0.001, label: 'GO/AO 가중치' }
     }
@@ -472,19 +467,18 @@ function SalarySimulatorView() {
       setPlayerStats({
         name: player.name,
         currentSalary: player.currentSalary,
-        fa: presetName === '김하성' ? 0 : 1,
-        years: presetName === '이승엽' || presetName === '이대호' ? 15 : (presetName === '김하성' ? 7 : 10),
-        sac_pos: presetName === '박용택' ? 5 : 2,
-        xr: Math.round((ops * 60 + war * 2) * 10) / 10,
-        mh: Math.round(stats.AVG ? stats.AVG * 400 : 35),
-        age: presetName === '김하성' ? 29 : (presetName === '이승엽' ? 38 : 34),
-        gw_rbi: Math.round(rbi * 0.1) || 6,
-        bb_k: Math.round((ops - 0.2) * 1.2 * 100) / 100,
-        so: Math.round(100 - ops * 40) || 70,
-        ibb: Math.round(rbi / 20) || 2,
-        sac_neg: 1,
-        triple: presetName === '김하성' ? 3 : 1,
-        go_ao: 1.1
+        fa: presetName === '김하성' || presetName === '김도영' ? 0 : 1,
+        years: presetName === '김도영' ? 4 : (presetName === '이승엽' || presetName === '이대호' ? 15 : (presetName === '김하성' ? 7 : 10)),
+        xr: presetName === '김도영' ? 48 : (Math.round((ops * 60 + war * 2) * 10) / 10),
+        mh: presetName === '김도영' ? 17 : (Math.round(stats.AVG ? stats.AVG * 400 : 35)),
+        age: presetName === '김도영' ? 23 : (presetName === '김하성' ? 29 : (presetName === '이승엽' ? 38 : 34)),
+        gw_rbi: presetName === '김도영' ? 6 : (Math.round(rbi * 0.1) || 6),
+        bb_k: presetName === '김도영' ? 0.87 : (Math.round((ops - 0.2) * 1.2 * 100) / 100),
+        so: presetName === '김도영' ? 38 : (Math.round(100 - ops * 40) || 70),
+        ibb: presetName === '김도영' ? 4 : (Math.round(rbi / 20) || 2),
+        sac_neg: presetName === '김도영' ? 2 : 1,
+        triple: presetName === '김하성' ? 3 : (presetName === '김도영' ? 1 : 1),
+        go_ao: presetName === '김도영' ? 0.73 : 1.1
       });
     }
   };
@@ -520,9 +514,6 @@ function SalarySimulatorView() {
 
     const yearsVal = parseFloat(playerStats.years) || 0;
     const yearsContrib = yearsVal * (parseFloat(weights.years) || 0);
-
-    const sacPosVal = parseFloat(playerStats.sac_pos) || 0;
-    const sacPosContrib = sacPosVal * (parseFloat(weights.sac_pos) || 0);
 
     const xrVal = parseFloat(playerStats.xr) || 0;
     const xrContrib = xrVal * (parseFloat(weights.xr) || 0);
@@ -561,7 +552,7 @@ function SalarySimulatorView() {
     const goAoVal = parseFloat(playerStats.go_ao) || 0;
     const goAoContrib = goAoVal * (parseFloat(weights.go_ao) || 0);
 
-    const scoreSum = faContrib + yearsContrib + sacPosContrib + xrContrib + mhContrib + ageContrib + 
+    const scoreSum = faContrib + yearsContrib + xrContrib + mhContrib + ageContrib + 
                      gwRbiContrib + bbKContrib + soContrib + ibbContrib + sacNegContrib + tripleContrib + goAoContrib;
 
     const predicted = base + scoreSum * scale;
@@ -572,7 +563,6 @@ function SalarySimulatorView() {
         { name: '기본 보장', amount: base, rawName: 'base' },
         { name: `FA여부 (${faVal})`, amount: faContrib * scale, rawName: 'fa' },
         { name: `연차 (${yearsVal}년)`, amount: yearsContrib * scale, rawName: 'years' },
-        { name: `SAC(+) (${sacPosVal})`, amount: sacPosContrib * scale, rawName: 'sac_pos' },
         { name: `XR (${xrVal})`, amount: xrContrib * scale, rawName: 'xr' },
         { name: `MH (${mhVal})`, amount: mhContrib * scale, rawName: 'mh' },
         { name: `나이 (${ageVal}세)`, amount: ageContrib * scale, rawName: 'age' },
@@ -580,7 +570,7 @@ function SalarySimulatorView() {
         { name: `BB/K (${bbKVal})`, amount: bbKContrib * scale, rawName: 'bb_k' },
         { name: `SO (${soVal})`, amount: soContrib * scale, rawName: 'so' },
         { name: `IBB (${ibbVal})`, amount: ibbContrib * scale, rawName: 'ibb' },
-        { name: `SAC(-) (${sacNegVal})`, amount: sacNegContrib * scale, rawName: 'sac_neg' },
+        { name: `희생타 (${sacNegVal})`, amount: sacNegContrib * scale, rawName: 'sac_neg' },
         { name: `3B (${tripleVal})`, amount: tripleContrib * scale, rawName: 'triple' },
         { name: `GO/AO (${goAoVal})`, amount: goAoContrib * scale, rawName: 'go_ao' }
       ]
@@ -712,15 +702,6 @@ function SalarySimulatorView() {
               />
             </div>
             <div className="form-group">
-              <label>SAC (+) (희생타)</label>
-              <input 
-                type="number" 
-                value={playerStats.sac_pos} 
-                onChange={(e) => handleStatChange('sac_pos', e.target.value)}
-                placeholder="예: 3"
-              />
-            </div>
-            <div className="form-group">
               <label>XR (득점공헌도)</label>
               <input 
                 type="number" 
@@ -786,7 +767,7 @@ function SalarySimulatorView() {
               />
             </div>
             <div className="form-group">
-              <label>SAC (-) (희생타)</label>
+              <label>희생타 (SAC)</label>
               <input 
                 type="number" 
                 value={playerStats.sac_neg} 
