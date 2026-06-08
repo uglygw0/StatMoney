@@ -369,7 +369,7 @@ function SalarySimulatorView() {
       bb_k: 0.031,
       so: 0.029,
       ibb: 0.029,
-      sac_neg: -0.150,
+      sac_neg: -0.328,
       triple: -0.226,
       go_ao: -0.124
     },
@@ -385,7 +385,7 @@ function SalarySimulatorView() {
       bb_k: 0.031,
       so: 0.029,
       ibb: 0.029,
-      sac_neg: -0.150,
+      sac_neg: -0.328,
       triple: -0.226,
       go_ao: -0.124
     }
